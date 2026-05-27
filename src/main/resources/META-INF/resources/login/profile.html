@@ -13,7 +13,7 @@
     
     <!-- <script>
         window.onload = function() {
-            alert("메인 페이지 로딩 완료");
+            showToast("메인 페이지 로딩 완료");
         }
     </script> -->
 
@@ -73,7 +73,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/login">로그인</a>
+                    <a class="nav-link btn btn-outline-danger btn-sm px-3" 
+                        href="/logout">로그아웃</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -130,6 +131,21 @@
                             <td id="infoPhone"></td>
                         </tr>
                     </table>
+
+                    <hr class="border-secondary my-4"> <div class="mb-3 text-start">
+                        <label class="form-label">연락처 수정</label>
+                        <input type="text" class="form-control bg-dark text-white border-secondary"
+                               id="updatePhone" name="phone"
+                               placeholder="010-0000-0000">
+                        <div class="invalid-feedback" id="updatePhoneMsg"></div>
+                    </div>
+
+                    <button type="button"
+                            class="btn btn-warning w-100"
+                            onclick="validateAndUpdate()">
+                        수정 완료
+                    </button>
+                    
                 </div>
             </div>
             <form id="uploadForm" method="POST" action="/profile/upload" enctype="multipart/form-data">
@@ -143,13 +159,11 @@
         </div>
     </section>
 
-    
-
-
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/search.js"></script>
     <script src="/js/toggle.js"></script>
     <script src="/js/input_check.js"></script>
+    <script src="/js/Profile.js"></script>
 
     <script src="/js/input_sha256.js"></script>
     <script src="/js/login.js"></script>
