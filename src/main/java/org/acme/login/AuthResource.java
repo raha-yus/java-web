@@ -24,11 +24,22 @@ public class AuthResource {
     @Path("/login") // 경로명시
     @Produces(MediaType.TEXT_HTML) // 서버→클라
     public Response loginPage() {
-            InputStream html = getClass()
-                .getClassLoader()
-                .getResourceAsStream("META-INF/resources/login/login.html");
-            return Response.ok(html).build();
+
+    // 세션 확인
+    String loginUser = context.session().get("loginUser");
+
+    // 이미 로그인 상태라면 메인 페이지로 이동
+    if (loginUser != null) {
+        return Response.seeOther(URI.create("/")).build();
     }
+
+    // 로그인 안 된 경우에만 로그인 화면 표시
+    InputStream html = getClass()
+            .getClassLoader()
+            .getResourceAsStream("META-INF/resources/login/login.html");
+
+    return Response.ok(html).build();
+}
 
     @Inject
     RoutingContext context;   // Quarkus Vert.x 세션 접근
@@ -41,16 +52,43 @@ public class AuthResource {
         @FormParam("username") String username,
         @FormParam("password") String password) {
         
+        // ===== 추가 ① : loginCheck 호출 확인 =====
+        System.out.println("========== LOGIN CHECK ==========");
+        System.out.println("username = " + username);
+        System.out.println("password = " + password);
+
         User user = User.findByUsername(username); // 아이디 조회
+
+        if (user != null) {
+            System.out.println("DB password = " + user.password);
+        }
+
+        System.out.println("INPUT password = " + password);
         
-        if (user == null || !user.password.equals(password)) { // 존재 확인
+        // ===== 추가 ② : DB 조회 결과 확인 =====
+        System.out.println("user = " + user);
+
+        if (user == null || !user.password.equalsIgnoreCase(password)) { // 존재 확인
+
+            // ===== 추가 ③ : 로그인 실패 확인 =====
+            System.out.println("로그인 실패");
+
             return Response
                 .seeOther(URI.create("/login?error=1"))
                 .build();
         }
 
+        // ===== 추가 ④ : 로그인 성공 확인 =====
+        System.out.println("로그인 성공");
+
         // 세션에 로그인 정보 저장
         context.session().put("loginUser", username);
+
+        // ===== 추가 ⑤ : 세션 저장 확인 =====
+        System.out.println(
+            "저장 후 loginUser = "
+            + context.session().get("loginUser")
+        );
 
         return Response
             .seeOther(URI.create("/after_login"))
@@ -86,7 +124,7 @@ public class AuthResource {
 
     @GET
     @Path("/logout")
-    public Response logout() {
+    public Response logout(@QueryParam("next") String next) {
         
         // 로그아웃 전 세션 정보출력
         System.out.println("=== 로그아웃 전 세션 ID : " + context.session().id());
@@ -99,8 +137,14 @@ public class AuthResource {
         System.out.println("=== 로그아웃 후 세션 ID : " + context.session().id());
         System.out.println("=== 로그아웃 후 loginUser : " + context.session().get("loginUser"));
         
+        // next 값에 따라 이동 경로 결정
+        String redirect =
+            (next != null && next.equals("login"))
+                ? "/login"
+                : "/";
+
         return Response
-            .seeOther(URI.create("/"))
+            .seeOther(URI.create(redirect))
             .build();
     }
 
@@ -295,5 +339,90 @@ public class AuthResource {
         }
     }
 
+    @POST
+    @Path("/profile/update")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profileUpdate(
 
+            @FormParam("email") String email,
+            @FormParam("phone") String phone) {
+
+        String loginUser =
+                context.session().get("loginUser");
+
+        if (loginUser == null) {
+
+            return Response
+                    .seeOther(URI.create("/login"))
+                    .build();
+        }
+
+        User found =
+                User.findByEmail(email);
+
+        if (found != null &&
+                !found.username.equals(loginUser)) {
+
+            return Response
+                    .seeOther(
+                            URI.create(
+                                    "/profile?error=duplicate_email"))
+                    .build();
+        }
+
+        User user =
+                User.findByUsername(loginUser);
+
+        user.email = email;
+        user.phone = phone;
+
+        return Response
+                .seeOther(
+                        URI.create("/profile?success=updated"))
+                .build();
+    }
+
+    @POST
+    @Path("/profile/password")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profilePassword(
+
+            @FormParam("currentPassword")
+            String currentPassword,
+
+            @FormParam("newPassword")
+            String newPassword) {
+
+        String loginUser =
+                context.session().get("loginUser");
+
+        if (loginUser == null) {
+
+            return Response
+                    .seeOther(URI.create("/login"))
+                    .build();
+        }
+
+        User user =
+                User.findByUsername(loginUser);
+
+        if (!user.password.equals(currentPassword)) {
+
+            return Response
+                    .seeOther(
+                            URI.create(
+                                    "/profile?error=wrong_password"))
+                    .build();
+        }
+
+        user.password = newPassword;
+
+        return Response
+                .seeOther(
+                        URI.create(
+                                "/profile?success=password_changed"))
+                .build();
+    }
 }

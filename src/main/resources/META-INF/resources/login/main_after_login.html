@@ -16,7 +16,7 @@
     <script src = "js/toggle.js"></script>
     <script src = "js/input_check.js"></script>
     <script src = "js/input_sha256.js"></script>
-    <script src = "js/Profile.js"></script>
+    <script src = "js/profile.js"></script>
     
     <!-- <script>
     window.onload = function() {
@@ -53,8 +53,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <img src="/images/LOL.webp" alt="" width="30" height="24">
+
             <!-- [변경] "Navbar" 텍스트 → 다크/라이트 토글 버튼-->
-            <button class="btn border-0" id="themeToggleBtn" onclick="toggleTheme()">💫DARK</button>
+            <button class="btn border-0" id="themeToggleBtn">💡 DARK</button>
 
             <a class="navbar-brand" href="#">리그오브레전드</a>
 
@@ -63,7 +64,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">리그홈</a>
                 </li>
@@ -113,14 +114,14 @@
             </ul>
             <form class="d-flex" id="searchForm">
                 <input class="form-control me-2" type="search" placeholder="검색"aria-label="Search" id="searchInput">
-                <button class="btnbtn-outline-success" type="submit">검색하기</button>
+                <button class="btn btn-outline-success" type="submit">검색하기</button>
             </form>
             </div>
         </div>
     </nav>
 
     <!-- 히어로 배너(Hero Banner) -->
-    <section class = "hero d-flex align-tems-center justify-content-center text-center py-5">
+    <section class = "hero d-flex align-items-center justify-content-center text-center py-5">
         <div class = "container">
             <h1 class = "display-3 fw-bold">League of Legends</h1>
             <p class = "lead"> 적의 넥서스를 파괴하세요! 5v5 MOBA 전투에서 팀과 함께 승리하세요.</p>
@@ -131,8 +132,9 @@
     <!-- 챔피언 선택 섹션 (작은 썸네일 PNG로 업데이트!) -->
     <section class = "container my-5">
         <h2 class = "text-center mb-4 accent-purple">챔피언 선택</h2>
-        <p class = "texxt-center mb-5">전투에 뛰어들기, 팀 지원, 또는 그 중간? 당신의 스타일을 선택하세요.</p>
+        <p class = "text-center mb-5">전투에 뛰어들기, 팀 지원, 또는 그 중간? 당신의 스타일을 선택하세요.</p>
         <div class = "row g-4">
+            
             <!-- Aatrox -->
             <div class = "col-md-6 col-lg-4 col-xl-2">
                 <div class = "card text-center h-100">
@@ -140,6 +142,12 @@
                     <div class = "card-body">
                         <h5 class = "card-title accent-purple">Aatrox (탑)</h5>
                         <p class = "card-text">어둠의 검으로 적을 베세요.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#aatroxModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -151,16 +159,28 @@
                     <div class = "card-body">
                         <h5 class = "card-title accent-purple">Sylas (정글/미드)</h5>
                         <p class = "card-text">궁극기를 훔치세요!</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#sylasModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
             <!-- Anivia -->
             <div class = "col-md-6 col-lg-4 col-xl-2">
                 <div class = "card text-center h-100">
-                    <img src = "image/images.jpg" class = "card-img-top" alt = "Anivia" loading = "lazy">
+                    <img src = "https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Anivia.png" class = "card-img-top" alt = "Anivia" loading = "lazy">
                     <div class = "card-body">
                         <h5 class = "card-title accent-red">Anivia (미드)</h5>
                         <p class = "card-text">얼음으로 적을 봉인하세요.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#aniviaModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -171,6 +191,12 @@
                     <div class = "card-body">
                         <h5 class = "card-title accent-purple">Briar (정글)</h5>
                         <p class = "card-text">광폭한 힘으로 돌진!</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#briarModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -181,16 +207,85 @@
                     <div class = "card-body">
                         <h5 class = "card-title accent-purple">Jax (탑)</h5>
                         <p class = "card-text">대장간의 주인!</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#jaxModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
-            <!-- Jiax -->
+            <!-- Jinx -->
             <div class = "col-md-6 col-lg-4 col-xl-2">
                 <div class = "card text-center h-100">
-                    <img src = "https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jiax.png" class = "card-img-top" alt = "Jiax" loading = "lazy">
+                    <img src = "https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jinx.png" class = "card-img-top" alt = "Jinx" loading = "lazy">
                     <div class = "card-body">
-                        <h5 class = "card-title accent-purple">Jiax (원딜)</h5>
+                        <h5 class = "card-title accent-purple">Jinx (원딜)</h5>
                         <p class = "card-text">폭발로 적을 날려버리세요.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#jinxModal">
+                            상세보기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mel -->
+            <div class="col-md-6 col-lg-4 col-xl-2">
+                <div class="card text-center h-100">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg"
+                        class="card-img-top"
+                        alt="Mel"
+                        loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title accent-purple">Mel (미드)</h5>
+                        <p class="card-text">강력한 마법으로 전장을 지배합니다.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#melModal">
+                            상세보기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Yunara -->
+            <div class="col-md-6 col-lg-4 col-xl-2">
+                <div class="card text-center h-100">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Yunara.png"
+                        class="card-img-top"
+                        alt="Yunara"
+                        loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title accent-red">Yunara (원딜)</h5>
+                        <p class="card-text">정교한 공격으로 적을 제압합니다.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#yunaraModal">
+                            상세보기
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Aurora -->
+            <div class="col-md-6 col-lg-4 col-xl-2">
+                <div class="card text-center h-100">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aurora_0.jpg"
+                        class="card-img-top"
+                        alt="Aurora"
+                        loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title accent-purple">Aurora (미드)</h5>
+                        <p class="card-text">영혼 세계를 넘나드는 마법사입니다.</p>
+
+                        <button class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#auroraModal">
+                            상세보기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -261,6 +356,577 @@
             </div>
         </div>
     </section>
+
+    <!-- Aatrox Modal 시작 -->
+    <div class="modal fade"
+        id="aatroxModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        아트록스 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Aatrox.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="아트록스">
+                    </div>
+
+                    <h4>아트록스 (Aatrox)</h4>
+                    <p>전사 / 탑 / 난이도 : 상</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 죽음의 손아귀</li>
+                        <li>Q : 다르킨의 검</li>
+                        <li>W : 지옥사슬</li>
+                        <li>E : 그림자 돌진</li>
+                        <li>R : 세계의 종결자</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        한때 신성한 전쟁의 신이었던 아트록스는
+                        다르킨의 힘에 의해 타락했다.
+                        현재는 복수와 파괴를 위해 전장을 누비고 있다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Sylas Modal 시작 -->
+    <div class="modal fade"
+        id="sylasModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        사일러스 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Sylas.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="사일러스">
+                    </div>
+
+                    <h4>사일러스 (Sylas)</h4>
+                    <p>마법사 / 정글·미드 / 난이도 : 중</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 페트리사이트 폭발</li>
+                        <li>Q : 사슬 후려치기</li>
+                        <li>W : 국왕시해자</li>
+                        <li>E : 도주 / 억압</li>
+                        <li>R : 강탈</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        데마시아에서 태어난 사일러스는 마법을 감지하는 능력을 지녔지만,
+                        오히려 그 힘 때문에 감옥에 갇히게 되었다.
+                        오랜 세월 억압받은 그는 탈출에 성공한 뒤
+                        데마시아의 마법사들을 해방시키기 위한 혁명을 이끌고 있다.
+                        적의 궁극기를 훔쳐 사용하는 독특한 능력으로 유명하다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Anivia Modal 시작 -->
+    <div class="modal fade"
+        id="aniviaModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        애니비아 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Anivia.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="애니비아">
+                    </div>
+
+                    <h4>애니비아 (Anivia)</h4>
+                    <p>마법사 / 미드 / 난이도 : 상</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 환생</li>
+                        <li>Q : 섬광탄</li>
+                        <li>W : 결정화</li>
+                        <li>E : 동상</li>
+                        <li>R : 빙하 폭풍</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        애니비아는 프렐요드의 영원한 수호자로 알려진
+                        불멸의 얼음불사조이다.
+                        수많은 세월 동안 죽음과 부활을 반복하며
+                        프렐요드의 역사와 운명을 지켜보아 왔다.
+                        그녀는 혹독한 겨울과 얼음의 힘을 다루며
+                        자신의 고향을 위협하는 적들로부터 세상을 보호한다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Briar Modal 시작 -->
+    <div class="modal fade"
+        id="briarModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        브라이어 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Briar.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="브라이어">
+                    </div>
+
+                    <h4>브라이어 (Briar)</h4>
+                    <p>전사 / 정글 / 난이도 : 중</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 진홍빛 저주</li>
+                        <li>Q : 머리 박기</li>
+                        <li>W : 핏빛 광분</li>
+                        <li>E : 오싹한 비명</li>
+                        <li>R : 확실한 죽음</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        브라이어는 녹서스의 비밀 조직인 검은 장미단이
+                        살아있는 무기로 만들기 위해 창조한 실험체이다.
+                        끝없는 식욕과 폭력적인 본능을 억제하기 위해
+                        특수한 구속구가 채워졌지만,
+                        결국 탈출에 성공하여 자신만의 삶을 찾아 나서게 되었다.
+                        피에 대한 갈망과 자유를 향한 욕망 사이에서
+                        끊임없이 갈등하는 존재이다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jax Modal 시작 -->
+    <div class="modal fade"
+        id="jaxModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        잭스 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jax.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="잭스">
+                    </div>
+
+                    <h4>잭스 (Jax)</h4>
+                    <p>전사 / 탑 / 난이도 : 하</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 가차없는 맹공</li>
+                        <li>Q : 도약 공격</li>
+                        <li>W : 무기 강화</li>
+                        <li>E : 반격</li>
+                        <li>R : 무기의 달인</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        잭스는 아이오니아와 슈리마의 전쟁을 거치며
+                        수많은 적을 쓰러뜨린 전설적인 전사이다.
+                        그는 자신과 맞설 만한 강자를 찾기 위해
+                        룬테라 전역을 여행하고 있으며,
+                        평범한 가로등을 무기로 사용할 정도로
+                        뛰어난 전투 실력을 지녔다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jinx Modal 시작 -->
+    <div class="modal fade"
+        id="jinxModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        징크스 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Jinx.png"
+                            class="img-fluid"
+                            style="max-height:250px;"
+                            alt="징크스">
+                    </div>
+
+                    <h4>징크스 (Jinx)</h4>
+                    <p>원거리딜러 / 원딜 / 난이도 : 중</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 신난다!</li>
+                        <li>Q : 바꿔 쏴!</li>
+                        <li>W : 빠직!</li>
+                        <li>E : 와작와작 뻥!</li>
+                        <li>R : 초강력 초토화 로켓!</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        징크스는 필트오버와 자운을 뒤흔드는
+                        혼돈의 상징이다.
+                        폭발물과 각종 무기를 사랑하며,
+                        예측할 수 없는 행동으로 도시 전체를
+                        혼란에 빠뜨린다.
+                        그녀는 언제나 더 큰 폭발과 더 큰
+                        재미를 찾아다닌다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mel Modal 시작 -->
+    <div class="modal fade"
+        id="melModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        멜 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg"
+                            class="img-fluid rounded"
+                            style="max-height:250px;"
+                            alt="멜">
+                    </div>
+
+                    <h4>멜 (Mel)</h4>
+                    <p>마법사 / 미드 / 난이도 : 중</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 황금의 통찰</li>
+                        <li>Q : 빛의 파편</li>
+                        <li>W : 황금 장막</li>
+                        <li>E : 권위의 파동</li>
+                        <li>R : 메다르다의 심판</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        멜 메다르다는 녹서스의 명문 가문인
+                        메다르다 가문의 후계자로,
+                        뛰어난 정치 감각과 지략을 갖춘 인물이다.
+                        필트오버에서 영향력을 넓히며
+                        평화와 번영을 추구했지만,
+                        동시에 냉철한 판단력으로
+                        자신의 목표를 이루기 위해 행동한다.
+                        강력한 마법과 지혜를 활용해
+                        전장의 흐름을 바꾸는 챔피언이다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Yunara Modal 시작 -->
+    <div class="modal fade"
+        id="yunaraModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        유나라 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/15.24.1/img/champion/Yunara.png"
+                            class="img-fluid rounded"
+                            style="max-height:250px;"
+                            alt="유나라">
+                    </div>
+
+                    <h4>유나라 (Yunara)</h4>
+                    <p>원거리딜러 / 원딜 / 난이도 : 중</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 영혼의 흔적</li>
+                        <li>Q : 영혼 화살</li>
+                        <li>W : 여우불 사격</li>
+                        <li>E : 신속한 도약</li>
+                        <li>R : 천상의 폭우</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        유나라는 아이오니아 출신의 궁수로,
+                        고대 영혼들과 교감하는 특별한 능력을 지녔다.
+                        정교한 사격 실력과 민첩한 움직임으로
+                        전장을 누비며 적을 제압한다.
+                        조국과 자연을 지키기 위해 싸우며,
+                        영혼의 힘을 담은 화살로 적들에게
+                        강력한 일격을 가하는 챔피언이다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Aurora Modal 시작 -->
+    <div class="modal fade"
+        id="auroraModal"
+        tabindex="-1"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        오로라 상세 정보
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="text-center mb-3">
+                        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aurora_0.jpg"
+                            class="img-fluid rounded"
+                            style="max-height:250px;"
+                            alt="오로라">
+                    </div>
+
+                    <h4>오로라 (Aurora)</h4>
+                    <p>마법사 / 미드 / 난이도 : 상</p>
+
+                    <hr>
+
+                    <h5>스킬</h5>
+
+                    <ul>
+                        <li>패시브 : 영혼의 이끌림</li>
+                        <li>Q : 이중 저주</li>
+                        <li>W : 장막 너머로</li>
+                        <li>E : 기묘한 퇴마</li>
+                        <li>R : 세계 사이</li>
+                    </ul>
+
+                    <h5>배경 스토리</h5>
+
+                    <p>
+                        오로라는 프렐요드 출신의 마법사로,
+                        인간 세계와 영혼 세계를 모두 볼 수 있는
+                        특별한 능력을 지니고 있다.
+                        그녀는 방황하는 영혼들을 돕고,
+                        위험한 존재들로부터 세상을 지키기 위해
+                        여행을 떠났다.
+                        영혼 세계를 자유롭게 넘나들며
+                        적들을 혼란에 빠뜨리는 독특한 전투 방식을 사용한다.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src = "js/bootstrap.bundle.min.js"></script>
+    <script src = "js/test.js"></script>
+    <script src = "js/search.js"></script>
+    <script src = "js/test2.js"></script>
+    <script src = "js/toggle.js"></script>
+    <script src = "js/input_check.js"></script>
+    <script src = "js/input_sha256.js"></script>
+    <script src = "js/profile.js"></script>
 
 </body>
 </html>

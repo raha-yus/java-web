@@ -83,3 +83,27 @@ body.light-mode .hero { background: linear-gradient(to bottom, #dce3ea, #f8f9fa)
 body.light-mode .card { background-color: #ffffff; color: #212529; border: 1px solid #dee2e6; }
 body.light-mode .card-title { color: #212529; }
 body.light-mode .card-text { color: #555; }
+
+/* ── 챔피언 상세 모달 ─────────────────────── */
+
+.modal-content { background-color: #1e1e1e; color: #ffffff; border: 1px solid #444;}
+.modal-header { border-bottom: 1px solid #444; }
+.modal-footer { border-top: 1px solid #444; }
+.modal-title { color: #c8aa6e; font-weight: bold;}
+.modal-body h4, 
+.modal-body h5 { color: #c8aa6e; }
+.modal-body p { color: #d0d0d0; line-height: 1.8; }
+.modal-body ul { padding-left: 20px; }
+.modal-body li { margin-bottom: 8px; }
+.modal-body img { max-height: 300px; object-fit: contain; display: block; margin: 0 auto;}
+.btn-close { filter: invert(1); }
+
+/* ── 라이트 모드 - 모달 ─────────────────────── */
+body.light-mode .modal-content { background-color: #ffffff; color: #212529; border: 1px solid #dee2e6; }
+body.light-mode .modal-header { border-bottom: 1px solid #dee2e6; }
+body.light-mode .modal-footer { border-top: 1px solid #dee2e6; }
+body.light-mode .modal-title,
+body.light-mode .modal-body h4,
+body.light-mode .modal-body h5 { color: #0d6efd;}
+body.light-mode .modal-body p { color: #555; }
+body.light-mode .btn-close { filter: none;}

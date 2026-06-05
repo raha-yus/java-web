@@ -7,7 +7,7 @@ function toggleTheme() {
     body.classList.toggle('light-mode');
 
     if (body.classList.contains('light-mode')) {
-        btn.textContent = 'LIGHT';
+        btn.textContent = '☀️ LIGHT';
         navbar.classList.remove('navbar-dark', 'bg-dark');
         navbar.classList.add('navbar-light', 'bg-light');
     } else {
@@ -16,3 +16,7 @@ function toggleTheme() {
         navbar.classList.add('navbar-dark', 'bg-dark');
     }
 }
+
+document
+    .getElementById('themeToggleBtn')
+    .addEventListener('click', toggleTheme);
