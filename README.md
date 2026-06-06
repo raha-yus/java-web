@@ -15,9 +15,9 @@
 - 실습 2 : 시스템 사양 표(Table) 구현 및 웹 페이지 반응형 처리 완료!
 
 <div align="center">
-  <img src="screenshots/3주차 - 1.png" width="45%" alt="3, 4주차 실습 화면 - 1">
-  <img src="screenshots/3주차 - 2.png" width="45%" alt="3, 4주차 실습 화면 - 2">
-  <img src="screenshots/3주차 - 3.png" width="45%" alt="3, 4주차 실습 화면 - 3">
+  <img src="screenshots/3, 4주차 - 1.png" width="45%" alt="3, 4주차 실습 화면 - 1">
+  <img src="screenshots/3, 4주차 - 2.png" width="45%" alt="3, 4주차 실습 화면 - 2">
+  <img src="screenshots/3, 4주차 - 3.png" width="45%" alt="3, 4주차 실습 화면 - 3">
 </div>
 <br>
 
