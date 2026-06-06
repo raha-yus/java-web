@@ -86,3 +86,7 @@
   <img src="screenshots/13주차 - 2.png" width="45%" alt="토스트 메시지 구현">
 </div>
 <br>
+
+# 기말 고사 시험 정리
+[9, 10주차 강의 자료 다운로드](path/to/your/file.pdf)
+[11, 12, 13주차 강의 자료 다운로드](path/to/your/file.pdf)
