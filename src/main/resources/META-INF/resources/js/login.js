@@ -71,3 +71,16 @@ function clearError(inputId) {
 
     if (msg) msg.innerText = '';
 }
+
+window.addEventListener("load", function () {
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+
+    if (error === "1") {
+        showError(
+            "passwordInput",
+            "passwordMsg",
+            "아이디 또는 패스워드가 올바르지 않습니다."
+        );
+    }
+});

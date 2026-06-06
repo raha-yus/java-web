@@ -102,7 +102,7 @@ window.onload = function () {
         }
     }
 
-    // 업로드 오류
+    // 업로드 오류 감지
     if (error) {
 
         const messages = {

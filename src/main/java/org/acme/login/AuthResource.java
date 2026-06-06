@@ -110,7 +110,7 @@ public class AuthResource {
         if (loginUser == null) {
             // 세션 없음 → 로그인 페이지로강제이동
             return Response
-                .seeOther(URI.create("/login"))
+                .seeOther(URI.create("/login?error=1"))
                 .build();
             }
         
@@ -236,7 +236,7 @@ public class AuthResource {
         String loginUser = context.session().get("loginUser");
         if (loginUser == null) {
             return Response
-                    .seeOther(URI.create("/login"))
+                    .seeOther(URI.create("/login?error=1"))
                     .build();
         }
 
@@ -292,7 +292,7 @@ public class AuthResource {
         String loginUser = context.session().get("loginUser");
         if (loginUser == null) {
             return Response
-                    .seeOther(URI.create("/login"))
+                    .seeOther(URI.create("/login?error=1"))
                     .build();
         }
 
@@ -354,7 +354,7 @@ public class AuthResource {
         if (loginUser == null) {
 
             return Response
-                    .seeOther(URI.create("/login"))
+                    .seeOther(URI.create("/login?error=1"))
                     .build();
         }
 
@@ -401,7 +401,7 @@ public class AuthResource {
         if (loginUser == null) {
 
             return Response
-                    .seeOther(URI.create("/login"))
+                    .seeOther(URI.create("/login?error=1"))
                     .build();
         }
 
