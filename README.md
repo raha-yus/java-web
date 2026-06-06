@@ -91,3 +91,6 @@
 
 ## ChatGPT 사용 기록
 [ChatGPT 사용 기록](https://chatgpt.com/g/g-p-6a1fade8c1b081918dd7122447282d49-jabaweb-seukeuribteu-1haggi-1/project)
+
+## 9 ~ 13주차 수업 내용 요약본
+[요약본](./자바웹 스크립트 기말고사 요약본.pdf)
