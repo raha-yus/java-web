@@ -1,11 +1,34 @@
-# code-with-quarkus
+# quarkus 프로젝트 시작! ( 학번: 20251263 / 이름: 박규민 )
+매주 수업 내용을 정리하자.
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## 2주차 수업 내용
+<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/5da4bc9b-450e-41d2-b8a2-918af4a98de7" />
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+## 3주차 수업 내용
 
-## Running the application in dev mode
 
+## 4주차 수업 내용
+
+
+## 6주차 수업 내용
+
+
+## 9주차 수업 내용
+
+
+## 10주차 수업 내용
+
+
+## 11주차 수업 내용
+
+
+## 12주차 수업 내용
+
+
+## 13주차 수업 내용
+
+
+## 템플릿
 You can run your application in dev mode that enables live coding using:
 
 ```shell script
@@ -61,29 +84,3 @@ If you want to learn more about building native executables, please consult <htt
 - REST Qute ([guide](https://quarkus.io/guides/qute-reference#rest_integration)): Qute integration for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
 - OpenID Connect ([guide](https://quarkus.io/guides/security-openid-connect)): Verify Bearer access tokens and authenticate users with Authorization Code Flow
 - WebSockets ([guide](https://quarkus.io/guides/websockets)): WebSocket communication channel support
-
-## Provided Code
-
-### Qute Web
-
-Qute templates like `some-page.html` served via HTTP automatically by Quarkus from the `src/main/resource/templates/pub` directory. No controllers needed. Once the quarkus app is started visit the generated page at http://localhost:8080/some-page?name=World
-
-[Related guide section...](https://docs.quarkiverse.io/quarkus-qute-web/dev/index.html)
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
-
-### REST Qute
-
-Create your web page using Quarkus REST and Qute
-
-[Related guide section...](https://quarkus.io/guides/qute#type-safe-templates)
-
-### WebSockets
-
-WebSocket communication channel starter code
-
-[Related guide section...](https://quarkus.io/guides/websockets)
