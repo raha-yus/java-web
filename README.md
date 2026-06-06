@@ -2,7 +2,13 @@
 매주 수업 내용을 정리하자.
 
 ## 2주차 수업 내용
-<img width="1920" height="1032" alt="image" src="https://github.com/user-attachments/assets/5da4bc9b-450e-41d2-b8a2-918af4a98de7" />
+실습1 : 쿼크스 환경 구축 및 준비 완료
+실습2 : HTML 기본 및 LOL 메인화면 개발 완료
+
+<div align="center">
+  <img src="screenshots/2주차 - 1.png" width="45%" alt="실습1 화면">
+</div>
+<br>
 
 ## 3주차 수업 내용
 
