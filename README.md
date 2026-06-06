@@ -87,9 +87,10 @@
 </div>
 <br>
 
-# ChatGPT 사용 기록
+# 기타
+
+## ChatGPT 사용 기록
 [ChatGPT 사용 기록](https://chatgpt.com/g/g-p-6a1fade8c1b081918dd7122447282d49-jabaweb-seukeuribteu-1haggi-1/project)
 
-# 기말 고사 시험 정리
-[9, 10주차 강의 자료 다운로드](./기말고사 시험 정리/파일명.pdf)
-[11, 12, 13주차 강의 자료 다운로드](./기말고사 시험 정리/파일명.pdf)
+## 기말 고사 시험 정리
+- [파일이름](./기말고사 시험 정리/파일명.pdf)
